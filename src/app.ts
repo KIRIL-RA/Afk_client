@@ -6,7 +6,4 @@ const robot = require('robotjs');
 const fs = require('fs');
 const path = require('path');
 
-// Loading config
-const config = JSON.parse(fs.readFileSync(path.join(path.dirname(process.execPath), 'config.json')));
-
 initializeWebScoket();
