@@ -1,8 +1,9 @@
 const robot = require('robotjs');
+const { execFile } = require('child_process');
 
 export function handleACtion(actionMsg: string) {
     try {
-        const splittedAction = actionMsg?.split(':');
+        const splittedAction = actionMsg?.split('|||');
 
         // Getting all needed parameters
         const actionType = splittedAction[0];
@@ -13,7 +14,7 @@ export function handleACtion(actionMsg: string) {
         switch (actionType) {
             // Handle open file
             case 'open':
-                require('child_process').exec(`start ${action}`);
+                execFile(action);
                 break;
 
             // Handle press key
