@@ -1,6 +1,6 @@
 const robot = require('robotjs');
-const { launchProcess } = require('./child_worker');
-const { execFile, closeProcess } = require('child_process');
+const { launchProcess, closeProcess } = require('./child_worker');
+const { execFile } = require('child_process');
 
 export function handleACtion(actionMsg: string) {
     try {
