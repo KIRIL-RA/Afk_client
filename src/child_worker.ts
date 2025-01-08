@@ -6,6 +6,13 @@ let proccesses: ProcessData[] = [];
 
 export async function launchProcess(data: ProcessDto) {
   try {
+    // Close previous opened processes
+    proccesses.forEach(el => {
+      terminate(el.process.pid);
+    });
+    // Clear processes array
+    proccesses = [];
+    
     // Open a child process
     const child: ChildProcess = spawn(data.filePath, {
       stdio: 'inherit', // Inherit I/O streams (optional)
