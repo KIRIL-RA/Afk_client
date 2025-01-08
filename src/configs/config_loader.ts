@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 import { ConfigI } from '../interfaces/config';
-const isDev = false;
+const isDev = true;
 
 const _config = isDev ? JSON.parse(fs.readFileSync(path.join(path.dirname(__dirname), './configs/config.json'))) : JSON.parse(fs.readFileSync(path.join(path.dirname(process.execPath), './configs/config.json')));
 
