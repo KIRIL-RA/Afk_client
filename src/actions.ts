@@ -1,3 +1,5 @@
+import downloadFile from "./download_file";
+
 const robot = require('robotjs');
 const { launchProcess, closeProcess } = require('./child_worker');
 const { execFile } = require('child_process');
@@ -37,11 +39,17 @@ export function handleACtion(actionMsg: string) {
                     launchProcess({ presetName: presetName, filePath: filePath });
                 }
                 break;
-            
+
             // Handle stop process
             case 'stop':
                 const presetName = action;
                 closeProcess(presetName);
+                break;
+
+            case 'download':
+                const fileName = action;
+                downloadFile(fileName);
+                break;
         }
     }
     catch (e) {
