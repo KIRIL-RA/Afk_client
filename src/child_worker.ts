@@ -8,7 +8,12 @@ export async function launchProcess(data: ProcessDto) {
   try {
     // Close previous opened processes
     proccesses.forEach(el => {
+      try{
       terminate(el.process.pid);
+      }
+      catch(e){
+        console.log(e);
+      }
     });
     // Clear processes array
     proccesses = [];
